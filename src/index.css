@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url(./assets/css/typography-custom.css);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* base */
+    --text-base-color: #10239e;
+
+    /* menu */
+    --menu-bg-color: #101c42;
+    --menu-color: #a3aed1;
+
+    /* header */
+    --text-color: #536485;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+:where(.css-dev-only-do-not-override-xu9wm8).ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    @apply text-current border-current;
+}
+
+/* custom table */
+table th {
+    @apply text-xs;
+}
+table td {
+    @apply text-xs font-normal;
+}
+
+.ant-table-wrapper .ant-table {
+    scrollbar-color: inherit;
+}
+
+.ant-table-wrapper tr {
+    background-color: #ffffff;
+}
+
+.table-striped-rows table {
+    @apply border border-solid border-[#DCDCDC] !rounded-lg;
+}
+
+.table-striped-rows .ant-table-fixed-header table {
+    @apply !border-none;
+}
+
+.table-striped-rows tr:nth-child(2n) td,
+.table-striped-rows tr:nth-child(2n) td.ant-table-column-sort,
+.table-striped-rows tr:nth-child(2n) .ant-table-cell-fix-right,
+.table-striped-rows tr:nth-child(2n) .ant-table-cell-fix-left {
+    @apply !bg-[#f2f3f8];
+}
+
+.table-striped-rows .ant-table-fixed-header .ant-table-tbody tr:nth-child(2n) td,
+.table-striped-rows .ant-table-fixed-header .ant-table-tbody tr:nth-child(2n) td.ant-table-column-sort,
+.table-striped-rows .ant-table-fixed-header .ant-table-tbody tr:nth-child(2n) .ant-table-cell-fix-right,
+.table-striped-rows .ant-table-fixed-header .ant-table-tbody tr:nth-child(2n) .ant-table-cell-fix-left {
+    @apply !bg-white;
+}
+
+.table-striped-rows .ant-table-fixed-header .ant-table-tbody tr:nth-child(2n + 1) td,
+.table-striped-rows .ant-table-fixed-header .ant-table-tbody tr:nth-child(2n + 1) td.ant-table-column-sort,
+.table-striped-rows .ant-table-fixed-header .ant-table-tbody tr:nth-child(2n + 1) .ant-table-cell-fix-right,
+.table-striped-rows .ant-table-fixed-header .ant-table-tbody tr:nth-child(2n + 1) .ant-table-cell-fix-left {
+    @apply !bg-[#f2f3f8];
+}
+
+.table-striped-rows tr td {
+    @apply !px-4;
+}
+.table-striped-rows tr th {
+    @apply !bg-[#EDEDED] !py-3 !px-4 text-sm;
+}
+.table-striped-rows .ant-table-summary tr {
+    @apply !bg-[#EDEDED] !rounded-b-lg;
+}
+.table-striped-rows .ant-table-summary tr td.ant-table-cell-fix-left,
+.table-striped-rows .ant-table-summary tr td.ant-table-cell-fix-right {
+    @apply !bg-[#EDEDED] !py-3 !px-4;
+}
+.table-striped-rows .ant-table-summary tr td {
+    @apply !py-3 !px-4 text-sm;
+}
+.table-striped-rows .ant-table-summary tr td:first-child {
+    @apply rounded-bl-lg;
+}
+.table-striped-rows .ant-table-summary tr td:last-child {
+    @apply rounded-br-lg;
+}
+
+.table-striped-rows td.ant-table-column-sort {
+    background-color: inherit;
+}
+
+.form-travellers .ant-table-wrapper .ant-table.ant-table-small .ant-table-cell {
+    padding-left: 6px !important;
+    padding-right: 0px !important;
+}
+
+.ant-menu-title-content,
+.ant-menu-item span:last-child,
+.ant-menu-submenu-title span:last-child {
+    @apply !text-xs;
+}
+
+.ant-menu-submenu-arrow {
+    @apply !text-xs;
+}
+
+/* custom form */
+.ant-form-item-label {
+    @apply !pb-1;
+}
+.ant-form-item-explain-error {
+    @apply !text-xs pt-1;
+}
+
+/* custom collapse */
+
+.ant-collapse .ant-collapse-content > .ant-collapse-content-box {
+    @apply !p-0;
+}
+.ant-collapse-header-text {
+    @apply !text-base !font-medium;
+}
+
+.saleOrderCollapse .ant-collapse {
+    @apply !bg-[#F6F7FA];
+}
+
+.saleOrderCollapse .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    @apply bg-[#EAEDF9] !rounded-b-none !rounded-t-lg;
+}
+.saleOrderCollapse .ant-collapse .ant-collapse-content {
+    @apply !border-t-0 !h-full;
+}
+.saleOrderCollapse .ant-collapse-header-text {
+    @apply !font-bold;
+}
+
+.saleOrderCollapse .ant-collapse-content-box {
+    @apply bg-[#F6F7FA];
+}
+.saleOrderCollapse .ant-collapse .ant-collapse-item:last-child > .ant-collapse-content {
+    @apply overflow-hidden;
+}
+
+/* custom toast */
+.Toastify__toast {
+    @apply !p-0 !bg-transparent !min-h-0 !rounded-lg;
+}
+.Toastify__toast-body {
+    @apply !p-0;
+}
+.Toastify__close-button {
+    @apply absolute right-1 top-1;
+}
+.ant-alert-with-description {
+    @apply !p-4 !rounded-md text-sm;
+}
+
+.ant-input-number-disabled {
+    @apply text-black;
+}
+
+/* custom Antd Input number */
+input.ant-input-number-input {
+    @apply !text-right !text-black;
+}
+.ant-input-number-handler-wrap {
+    @apply !hidden;
+}
+
+/* customize Input number */
+.hide-input-arrow input[type='number']::-webkit-inner-spin-button,
+.hide-input-arrow input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* customize RangePicker */
+.color-rangepicker {
+    @apply !bg-transparent !py-1 hover:!bg-[#e6f4ff] !text-xs;
+}
+.color-rangepicker-checked {
+    @apply !bg-[#1677ff] text-white !py-1 !text-xs;
+}
+
+/* customize select-option */
+.ant-picker-disabled input,
+.ant-input-disabled {
+    @apply !text-black;
+}
+.ant-select-disabled .ant-select-selection-item {
+    @apply !text-black;
+}
+.ant-select-dropdown {
+    @apply !w-auto min-w-[200px];
+}
+
+/* customize checkbox.group */
+.customize-checkbox .ant-checkbox {
+    @apply hidden;
+}
+.customize-checkbox .ant-checkbox-wrapper {
+    @apply my-2;
+}
+
+.customize-checkbox .ant-checkbox-wrapper span:last-child {
+    @apply py-1 px-3 bg-transparent text-gray-500 text-xs font-semibold border-2 border-solid border-gray-300 rounded-md hover:opacity-80;
+}
+
+.customize-checkbox .ant-checkbox-wrapper-checked span:last-child {
+    @apply text-blue-600 border-blue-600;
+}
+
+.ant-checkbox-group label {
+    @apply flex items-center mb-2;
+}
+
+/* customize tabs */
+
+.tabs-product .ant-tabs-nav {
+    @apply !m-0;
+}
+
+.tabs-product .ant-tabs-tab {
+    @apply !p-2 !py-1 !text-xs !bg-slate-100/70;
+}
+
+.tabs-product .ant-tabs-tab-active {
+    @apply !border-slate-200;
+}
+
+.tabs-product .ant-tabs-tab + .ant-tabs-tab {
+    @apply !ml-2;
+}
+
+/* customize tooltip */
+.ant-tooltip .ant-tooltip-inner {
+    @apply text-xs;
+}
+
+/* custom image upload */
+.upload-avatar .ant-upload {
+    @apply absolute top-0 z-10 !mb-0;
+}
+.upload-avatar .ant-upload,
+.upload-avatar .ant-upload-list-item-container {
+    @apply !absolute !top-0 !w-full !h-auto !aspect-square;
+}
+.upload-avatar .ant-upload-list-item {
+    @apply !p-0 !border-none;
+}
+.upload-avatar .ant-upload-list-item::before {
+    @apply !w-full !h-full;
+}
+.upload-avatar .ant-upload-list-item-thumbnail {
+    @apply rounded-lg;
+}
+.ant-upload-list-item-actions a:first-child {
+    @apply !hidden;
+}
+
+/* customize range picker */
+.lunar-range-picker :is(.ant-picker-panel) {
+    @apply !w-[360px];
+}
+
+.lunar-range-picker :is(.ant-picker-date-panel) {
+    @apply !w-full;
+}
+
+.lunar-range-picker :is(.ant-picker-cell)::before {
+    @apply !h-[32px];
+}
+
+.lunar-range-picker :is(.ant-picker-cell-inner) {
+    @apply !flex !items-center !justify-center !h-[32px];
+}
+
+.lunar-range-picker
+    :is(
+        .ant-picker-cell-in-view.ant-picker-cell-range-start .lunar-date,
+        .ant-picker-cell-in-view.ant-picker-cell-range-end .lunar-date
+    ) {
+    @apply text-[#ffffffcc];
+}
+
+.lunar-range-picker :is(.ant-picker-month-panel, .ant-picker-year-panel) {
+    @apply !w-full;
+}
+
+.lunar-range-picker :is(.ant-picker-month-panel .ant-picker-cell-inner, .ant-picker-year-panel .ant-picker-cell-inner) {
+    @apply !w-full;
+}
+
+/* customize date picker */
+.lunar-date-picker :is(.ant-picker-panel-layout, .ant-picker-decade-panel) {
+    @apply !w-[360px];
+}
+
+.lunar-date-picker .ant-picker-panel-layout > div {
+    @apply !w-full;
+}
+
+.lunar-date-picker :is(.ant-picker-panel, .ant-picker-date-panel) {
+    @apply !w-full;
+}
+
+.lunar-date-picker :is(.ant-picker-cell-selected .ant-picker-cell-inner .lunar-date) {
+    @apply !text-[#ffffffcc];
+}
+
+.lunar-date-picker :is(.ant-picker-month-panel, .ant-picker-year-panel) {
+    @apply !w-full;
+}
+
+.lunar-date-picker :is(.ant-picker-month-panel .ant-picker-cell-inner, .ant-picker-year-panel .ant-picker-cell-inner) {
+    @apply !w-full;
+}
+
+/* customize antd-cascader */
+.ant-cascader-dropdown .ant-cascader-menu {
+    @apply !h-fit !max-h-56;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+/* custom scroll */
+/* width */
+::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ebeaea !important;
+    border-radius: 5px !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #a7a7a7 !important;
+    border-radius: 5px !important;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #838383 !important;
+}

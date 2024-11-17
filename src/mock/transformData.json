@@ -1,0 +1,62 @@
+[
+    {
+        "time": "Jan",
+        "count": 800,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Feb",
+        "count": 600,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Mar",
+        "count": 400,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Apr",
+        "count": 380,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "May",
+        "count": 520,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Jun",
+        "count": 820,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Jul",
+        "count": 880,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Aug",
+        "count": 600,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Sep",
+        "count": 500,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Oct",
+        "count": 400,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Nov",
+        "count": 700,
+        "type": "Lợi nhuận"
+    },
+    {
+        "time": "Dec",
+        "count": 550,
+        "type": "Lợi nhuận"
+    }
+]

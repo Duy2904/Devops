@@ -1,0 +1,41 @@
+trigger: none
+
+variables:
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
+
+pool:
+  name: "Default"
+
+steps:
+  - task: SonarCloudPrepare@1
+    displayName: SonarCloud Prepare
+    inputs:
+      SonarCloud: 'SonarCloud'
+      organization: 'tripotaecosys'
+      scannerMode: 'CLI'
+      configFile: sonar-project.properties
+      extraProperties: |
+        sonar.cs.vstest.reportsPaths=$(Agent.TempDirectory)/*.trx
+        sonar.cs.opencover.reportsPaths=$(Agent.TempDirectory)/**/coverage.opencover.xml
+  - task: Cache@2
+    inputs:
+      key: '"yarn" | "$(Agent.OS)" | yarn.lock'
+      restoreKeys: |
+        "yarn" | "$(Agent.OS)"
+        "yarn"
+      path: $(YARN_CACHE_FOLDER)
+    displayName: Cache Yarn packages
+
+  - script: yarn --frozen-lockfile
+    displayName: Frozen lockfile
+
+  - script: yarn build
+    displayName: Yarn build
+
+  - task: SonarCloudAnalyze@1
+    displayName: SonarCloud Analyze
+
+  - task: SonarCloudPublish@1
+    displayName: SonarCloud Publish
+    inputs:
+      pollingTimeoutSec: '300'

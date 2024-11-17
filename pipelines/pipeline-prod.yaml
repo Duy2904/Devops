@@ -1,0 +1,37 @@
+trigger:
+  - production
+
+variables:
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
+
+pool:
+  name: "Azure Pipelines"
+
+steps:  
+  - task: Cache@2
+    inputs:
+      key: '"yarn" | "$(Agent.OS)" | yarn.lock'
+      restoreKeys: |
+        "yarn" | "$(Agent.OS)"
+        "yarn"
+      path: $(YARN_CACHE_FOLDER)
+    displayName: Cache Yarn packages
+
+  - script: yarn --frozen-lockfile
+    displayName: Frozen lockfile
+
+  - script: yarn build:production
+    displayName: Yarn build    
+  
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)/frontend'
+    inputs:
+      SourceFolder: dist
+      TargetFolder: '$(Build.ArtifactStagingDirectory)/frontend'
+
+  - task: PublishBuildArtifacts@1
+    displayName: Publish build artifacts
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/frontend'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
