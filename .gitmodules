@@ -1,6 +1,0 @@
-[submodule "TripOTA.TMC.Management"]
-	path = TripOTA.TMC.Management
-	url = https://TripOTAEcoSys@dev.azure.com/TripOTAEcoSys/Front%20Office%20-%20TMC/_git/TripOTA.TMC.Management
-[submodule "TripOTA.TMC.React"]
-	path = TripOTA.TMC.React
-	url = https://TripOTAEcoSys@dev.azure.com/TripOTAEcoSys/Front%20Office%20-%20TMC/_git/TripOTA.TMC.React
