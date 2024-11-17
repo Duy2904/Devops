@@ -1,0 +1,17 @@
+.dashboard-side-bar {
+  .ant-menu-item,
+  .ant-menu-submenu {
+    svg {
+      color: #8c8c8c;
+    }
+  }
+}
+
+.dashboard-side-bar {
+  .ant-menu-item.ant-menu-item-selected {
+    svg,
+    .ant-typography {
+      color: #1677ff;
+    }
+  }
+}

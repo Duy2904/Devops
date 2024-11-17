@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "6.6.0",
+    "generators": {
+      "tmc-v0.0.1": {
+        "inputSpec": "https://tmc-api-dev.tripota.com.vn/swagger/v1/swagger.json",
+        "generatorName": "typescript-axios",
+        "output": "sdk/tmc",
+        "typeMappings": {
+          "DateTime": "Date"
+        },
+        "generateAliasAsModel": true,
+        "apiPackage": "apis",
+        "modelPackage": "models",
+        "additionalProperties": {
+          "withSeparateModelsAndApi": true,
+          "stringEnums": true
+        },
+        "skipValidateSpec": true
+      }
+    }
+  }
+}

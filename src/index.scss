@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Roboto Flex", system-ui, sans-serif;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// disable arrow button in input number
+.ant-input-number-handler-wrap {
+  display: none !important;
+}
+
+.hnh-breadcrumb.ant-breadcrumb {
+  ol {
+    height: 24px;
+    li {
+      height: 100%;
+    }
+  }
+  a {
+    height: 100%;
+  }
+}
+
+.form-item--custom {
+  label {
+    order: 1;
+    &::before {
+      order: 2;
+      margin-inline-start: 4px;
+    }
+    &::after {
+      order: 3;
+    }
+  }
+}
+.select-item--custom {
+  .ant-select-selector {
+    min-height: var(--min-height, 48px);
+  }
+}
+
+.team-member-tag {
+  &.ant-tag-checkable-checked {
+    border: 1px solid #1677ff;
+    color: #1677ff;
+    background-color: white;
+  }
+}
+.team-member-select {
+  .ant-select-selector {
+    border: 1px solid #1677ff !important;
+    color: #1677ff;
+  }
+}
+.react-beautiful-dnd-draggable {
+  transition: transform 0.2s;
+}
+
+.col-auto {
+  flex: "0 0 auto";
+}

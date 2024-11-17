@@ -1,0 +1,72 @@
+# Docker
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+  branches:
+    include:
+      - test
+
+resources:
+ repositories:
+   - repository: deployment-repo
+     type: git
+     name: TripOTAFramework/TripOTA.Deployment
+     ref: release
+     persistCredentials: true
+  
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: 'a95b3609-0453-42e6-b277-c5d6c2043cf7'
+  imageRepository: 'tmc-booker-react'
+  deploymentDirectory: 'tmc-booker-react/sit'
+  containerRegistry: 'tripotadevacr.azurecr.io'
+  containerName: 'tmc-booker-react'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile.sit'
+  tag: '$(Build.BuildId)'
+  componentName: 'TMC Booker React'
+
+pool:
+  name: "Default"
+
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:
+  - job: Build
+    displayName: Build
+    steps:
+    - checkout: self
+      lfs: true
+      submodules: recursive
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+
+- stage: UpdateImageTag
+  displayName: Update image tag
+  jobs:
+  - job: UpdateImageTag
+    displayName: Update image tag
+    steps:
+    - checkout: deployment-repo
+      persistCredentials: true
+    - task: CmdLine@2
+      displayName: Command line
+      inputs:
+        script: |
+          export KUBECONFIG=~/.kube/config
+          git pull origin release
+          kubectl patch --local -f $(Build.Repository.LocalPath)/frontend/$(deploymentDirectory)/deployment.yaml -p '{"spec":{"template":{"spec":{"containers":[{"name":"$(containerName)","image":"$(containerRegistry)/$(imageRepository):$(tag)"}]}}}}' -o yaml > temp.yaml
+          mv temp.yaml $(Build.Repository.LocalPath)/frontend/$(deploymentDirectory)/deployment.yaml
+          cd $(Build.Repository.LocalPath)
+          git add .
+          git commit -m "$(componentName): develop new version deployment - version: $(tag)"
+          git push origin HEAD:release
